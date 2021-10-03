@@ -1,0 +1,247 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,500&display=swap" rel="stylesheet">
+    <title>Menz</title>
+    <style>
+
+        *{
+            font-family:sans-serif ;
+            color: rgb(88, 86, 86); 
+        }
+        #products {
+            margin: 5% 5% 10% 5%;
+            height: 600px;
+            display: grid;
+            grid-template-columns: 22% 22% 22% 22%;
+            grid-gap: 1%;
+            justify-content: center;
+        }
+        img {
+            width: 80%;
+        }
+
+        @media all and (max-width:500px) {
+         
+          *{
+            font-family:sans-serif ;
+            color: rgb(88, 86, 86); 
+
+          }
+
+          #products{
+            margin: 1% 1% 5% 1%;
+            height:1000px;
+            display: grid;
+            grid-template-columns: 48% 48%;
+            grid-gap: 1%;
+            justify-content: center;
+
+          }
+          img{
+              width:70%;
+          }
+          button{
+              display:block;
+          }
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Men's collection</h1>
+    <a href="swanandcart.html"><button>Go to cart</button></a>
+
+    <button onclick="sortLH()">Sort low to high</button>
+    <button onclick="sortHL()">Sort high to low</button>
+
+    <div id="products"></div>
+
+    <script>
+        let data = [
+    {
+      id:1,  
+      name: "Jacket",
+      price: 2000,
+      totalPrice: 2000,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/56496946_081_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    { 
+      id:2,
+      name: "Hoddie SweatShirt",
+      price: 1347,
+      totalPrice: 1347,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/41385576_062_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      id:3,
+      name: "Work Shirt",
+      price: 9979,
+      totalPrice: 9979,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/55150924_021_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      id:4,
+      name: "Wonder Short",
+      price: 2090,
+      totalPrice: 2090,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/61715652_004_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      id:5,
+      name: "Cargo joggers",
+      price: 1347,
+      totalPrice: 1347,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64127194_031_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      id:6,
+      name: "Sweat Shirt",
+      price: 9949,
+      totalPrice: 9949,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63923932_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      id:7,
+      name: "Crew Neck sweatshirt",
+      price: 2050,
+      totalPrice: 2050,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64360894_004_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      id:8,
+      name: "Work Shirt",
+      price: 1347,
+      totalPrice: 1347,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/61527545_066_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+        
+      id:9,
+      name: "Zip jacket",
+      price: 7499,
+      totalPrice: 7499,
+      quantity: 1,
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63749998_060_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      
+    },
+  ];
+       
+        // 1. Run a foreEach loop on data and console log individual product names 
+        // 2. append this data  on DOM
+        // 3. createElement
+
+        let parent = document.getElementById("products");
+
+        function showProducts(d) {
+
+            parent.innerHTML = null;
+
+            d.forEach(function (product) {
+
+                let div = document.createElement("div");
+
+                let img = document.createElement("img");
+
+                img.src = product.img;
+
+                let product_price = document.createElement("p");
+
+                product_price.textContent = product.price;
+
+                let product_name = document.createElement("p");
+
+                product_name.textContent = product.name;
+
+                let addtocart_btn =  document.createElement("button");
+
+                addtocart_btn.innerText = "Add to cart";
+
+                addtocart_btn.onclick = function () {
+                    addtoCart(product);              
+                  };
+
+                  div.append(img,product_name,product_price,addtocart_btn); // HTML element
+
+                  parent.append(div);
+            });
+        }
+
+        showProducts(data);
+
+        //check if cart exists in localStorage
+        
+        if (localStorage.getItem("urban") === null ) {
+            localStorage.setItem("urban",JSON.stringify([]));
+        }
+        
+        function addtoCart(p) {
+            
+            let products_cart = JSON.parse(localStorage.getItem("urban"));
+            console.log();
+            
+            if(products_cart.length === 0){
+                products_cart.push(p);
+            }else if(products_cart.length === 1){
+                if(products_cart[0].id === p.id){
+                    products_cart[0].quantity = products_cart[0].quantity + 1;
+                    products_cart[0].totalPrice = products_cart[0].quantity * products_cart[0].price;
+                }else{
+                    products_cart.push(p);
+                }
+            }else{
+                console.log(products_cart.length);
+                console.log(products_cart);
+                for(var i = 0;i<products_cart.length;i++){
+                   if(products_cart[i].id === p.id){
+                        console.log("In");    
+                        products_cart[i].quantity = products_cart[i].quantity + 1;
+                        products_cart[i].totalPrice = products_cart[i].quantity * products_cart[i].price;
+                        if(products_cart[products_cart.length-1].id === products_cart[i].id){
+                            products_cart.pop();
+                        }
+                    }else{
+                        console.log("Out");
+                        products_cart.push(p);
+                    }
+                }
+            }
+
+            localStorage.setItem("urban",JSON.stringify(products_cart));
+
+            
+
+        }
+
+        function sortLH() {
+
+            let arr = data.sort(function(a,b) {
+                return a.price - b.price;
+            });
+            //console.log(arr);
+            showProducts(arr);
+        }
+
+        function sortHL() {
+
+            let arr = data.sort(function(a,b) {
+                return b.price - a.price;
+            });
+            //console.log(arr);
+            showProducts(arr);
+        }
+
+    </script>
+</body>
+</html>

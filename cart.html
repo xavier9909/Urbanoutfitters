@@ -1,0 +1,443 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+           
+            font-family: sans-serif;
+        }
+         #maindiv{
+
+        width: 64%;
+        
+        height: 600px;
+        display: inline-block; 
+        margin-top: -20%;
+        margin-left: 4%;
+        
+       /* grid-template-columns: 20% 20% 20% 20% ;*/
+        
+        
+        
+
+    }
+    
+   
+   
+    .flexdiv{
+        display :flex;
+        flex-basis:20%;
+         width:90%;
+         padding-bottom:5%;
+    }
+    img{
+        width: 100%;
+        height: 200px;
+    }
+    
+    #horizontallin{
+         height: 1px;
+         background-color: #eeeeee;
+         width: 100%;
+     }
+     #leftdiv{
+         padding-left: 2%;
+         padding-right: 5%;
+         width: 60%;
+         
+         display: inline-block;
+     }
+     #shopbg{
+         display: inline-block;
+         
+         width: 30%;
+
+     }
+     #delivery{
+        display: inline-block;
+         color: #b6b6b6;
+         width: 65%;
+         padding-left: 30px;
+         text-align: right;
+
+
+     }
+     .container{
+         display: flex;
+         padding: 2% 0;
+         justify-content: space-around;
+         flex-flow: row wrap;
+         align-items: stretch;
+     }
+     .item{
+       flex-grow: "1";
+       width: 200px;
+       padding-right: 70px;
+       padding-left: 150px;
+       
+     }
+     .item1{
+        flex-grow: "1";
+        text-align: right;
+        padding-left: 70px;
+        
+    }
+    #rightdiv{
+        display: inline-block;
+        width: 20%;
+       
+        vertical-align: top;
+    }
+    #rightdiv{
+        width:30%;
+        vertical-align: top;
+        display:inline-block;
+    }
+    #rightdiv #order {
+        display:inline-block;
+    }
+    #rightdiv #source{
+        display:inline-block;
+    }
+    #source{
+        color: #b6b6b6;
+        text-align: right;
+        padding-left: 40%;
+    }
+    #totaldiv{
+        width: 90%;
+        height: 400px;
+        
+        margin:5% 0 5% 5%;
+        
+
+    }
+    #totaldiv #subtotal div{
+        text-align: right;
+        display: inline-block;
+    }
+    #subtotal .sub1 {
+        display: inline-block;
+    }
+
+    #subtotal .sub2 {
+        display: inline-block;
+        padding-left: 60%;
+    }
+    #subtotal{
+        padding-top: 6%;
+    }
+    #imglogo{
+        width:22%;
+        height: 16px;
+        padding-top: 2%;
+    }
+    #button{
+        width: 70%;
+        height: 30px;
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        padding: 3% 3% 10% 3%;
+        
+        margin-left:15%;
+        
+    }
+    #buttondiv{
+        
+        margin-top: 2%;
+
+    }
+    #paypal{
+        width:70%;
+        height:40px;
+        border-radius: 3px;
+        
+        background-color: white;
+        padding: 3% 3% 10% 3%;
+        margin-left: 15%;
+        margin-top: 3%;
+    }
+    .class{
+        margin-top: -2%;
+        height: 10%;;
+    }
+    #paypallogo {
+        margin-top: -3%;
+       height:40px;
+    }
+    #paypal div{
+     height: 80%;
+    }
+    
+    #saved{
+        width:92%;
+        padding: 40px;
+        border:1px solid #eeeeee; 
+        margin-top: 8%;
+
+    }
+    #saved1{
+         
+        margin-top: 8%;
+
+    }
+    #quantityslct{
+        padding: 10px;
+        border-radius: 6px;
+    }
+    #mostp{
+        margin-top: 8%; 
+    }
+    .slide{
+     width: 100%;
+     height: 100%;
+
+     }
+     
+     .carousel-cell {
+        width: 10%;
+        height: 300px;
+       margin-left: 30px;
+     
+        border-radius: 5px;
+        counter-increment: carousel-cell;
+      }
+      .slide1{
+          width:100%;
+          
+      }
+      
+      .div2{
+         
+          padding-left: 2%;
+          width: 34%;
+         
+        }
+        .div3{
+            
+            width: 10%;
+            margin-left: auto;
+            padding-left: 1%;
+        }
+        .div4{
+            
+        
+            width: max-content;
+            height: max-content;
+            margin-left: auto;
+            padding:1%;
+            
+            
+        }
+        .div5{
+            
+            width: 10%;
+            margin-left: auto;
+            padding-right: 1%;
+            text-align: right;
+        }
+        .div6{
+          background-color: solid #eeeeee;
+          width:100%;
+          height: 0px;
+          
+        }
+        .t1{
+        
+            
+        }
+       #ttlamt{
+           display: inline-block;
+           padding-left: 60%;
+       }
+       #subttl{
+           display: inline-block;
+           padding-left: 60%;
+       }
+    </style>
+   
+    
+</head>
+<body>
+    <div id = "horizontallin"></div>
+
+    <div id = "leftdiv">
+        <div id = "shopbg">Shopping Bag</div>
+        <a  href =options.html><div id ="delivery"><u>Delivery options</u></div></a>
+        <div id = "horizontallin"></div>
+        <div class ="container">
+            <div class ="item">Item</div>
+            <div class  ="item1">Item Price</div>
+            <div class  ="item1">Quantity</div>
+            <div class  ="item1">Total</div>
+            
+            
+        </div>
+    </div>
+    <div id = "rightdiv">
+        <div id ="order">Order Summary</div>
+        <div id = "source"><u>800.282.2200</u></div>
+        <div id = "totaldiv">
+            <div id = "subtotal">
+                <div class ="sub1 sbttl">Subtotal</div>
+                <div id ="subttl"></div>
+            </div>
+        
+            <div id = "subtotal">
+                <div class ="ship">Shipping</div>
+                <div class = "sub2 shipamt">$4.66</div>
+            </div>
+            <div id = "subtotal">
+                <div class ="cash">Estimated Tax</div>
+                <div class = "sub2 cashamt">TBD</div>
+            </div>
+            <div id = "subtotal">
+                <div class ="ttl">Total</div>
+                <div id ="ttlamt"></div>
+            </div>
+            <div id ="subtotal">Or 4 interest-free installments of $77.72 by</div>
+            <div class ="class" >
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Afterpay_logo.svg/1200px-Afterpay_logo.svg.png" id ="imglogo">
+            </div>
+            <div id ="buttondiv">
+                <a href ="checkout.html"><button type ="text" id ="button" onclick="joy()">Proceed to Checkout</button><a>
+            </div>
+            <div id= "paypal1">
+                <a href ="paypal.html"><button type ="text" id ="paypal" onclick="joy()"><div><img src ="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/2560px-PayPal.svg.png" id ="paypallogo"></div></button></a>
+            </div>
+            </br>
+            
+            <div id = "horizontallin1"></div>
+            <div id ="subtotal">
+                <div>promo code</div>
+                <div class = sub2>+</div>
+            </div>
+        </div>
+    
+    
+    
+    </div>
+
+    <div id ="maindiv"></div>
+    
+    
+    
+       
+    
+</body>
+</html>
+<script>
+    let parent = document.getElementById("maindiv")
+   // var total = document.getElementsByClassName("ttlamt");
+    var total =document.getElementById("ttlamt")
+    
+    var subtotal = document.getElementById("subttl")
+ 
+
+  let cart = JSON.parse(localStorage.getItem("urban"));
+///console.log(cart)
+var sum = 0;
+function showProducts(){
+  cart.forEach(function(product){
+      //console.log(product.name)
+      let flexdiv = document.createElement("div");
+      flexdiv.classList.add("flexdiv")
+      
+      
+
+      let div = document.createElement("div");
+
+
+      let div2= document.createElement("div");
+      div2.classList.add("div2")
+     
+
+      let div3= document.createElement("div")
+      div3.classList.add("div3")
+     
+
+      
+     
+      var values = ["1","2","3","4","5","6","7","8","9","10"];
+ 
+     var div4 = document.createElement("select");
+     div4.classList.add("div4")
+     
+
+    for (const val of values)
+    {
+        var option = document.createElement("option");
+        option.value = val;
+        option.text = val;
+        div4.appendChild(option);
+        
+    }
+    div4.value = product.quantity;
+    //var tempPrice = 0
+    div4.onchange = function(){
+        product.totalPrice = div4.value * product.price;
+        product.quantity = div4.value
+        
+        localStorage.setItem("urban",JSON.stringify(cart));
+        window.location.href = "swanandcart.html";
+        //<a href="swanandcart.html"><button>Go to cart</button></a> 
+    };  
+    
+      
+      sum = sum + product.totalPrice;
+
+      let div5= document.createElement("div");
+      div5.classList.add("div5")
+      div5.textContent= product.totalPrice
+     
+
+      let div6=document.createElement("hr");
+      div6.classList.add("div6");
+
+
+      let img = document.createElement("img");
+
+      img.src = product.img
+
+      let product_price = document.createElement("p");
+     product_price.textContent = product.price
+     
+     let product_name = document.createElement("p");
+     product_name.textContent = product.name;
+     
+     
+
+     div.append(img);
+     div2.append(product_name)
+     div3.append(product_price)
+
+     
+     flexdiv.append(div,div2,div3,div4,div5);
+
+     parent.append(flexdiv,div6)
+     
+     
+  });
+  var t1 = document.createElement("div")
+  var t2 = document.createElement("div")
+  t1.textContent = sum
+  t1.classList.add("t1");
+  t2.textContent = sum
+ // total = sum + Number(shipamt.value)
+var shipping = document.getElementsByName("shipamt")
+ console.log(shipping.textContent)
+  subtotal.append(t2);
+  total.append(t1);
+  //total.append(t1);
+  console.log(sum)
+    }
+    
+    showProducts();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

@@ -1,0 +1,366 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Outfitters</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+     #horizontallin{
+         height: 1px;
+         background-color: #eeeeee;
+         width: 100%;
+     }
+     #horizontallin1{
+         height: 1px;
+         background-color: #eeeeee;
+         width: 100%;
+     }
+     #leftdiv{
+         padding-left: 50px;
+         padding-right: 50px;
+         width: 60%;
+         
+         display: inline-block;
+     }
+     #shopbg{
+         display: inline-block;
+         
+         width: 30%;
+
+     }
+     #delivery{
+        display: inline-block;
+         color: #b6b6b6;
+         width: 65%;
+         padding-left: 30px;
+         text-align: right;
+
+
+     }
+     #rightdiv{
+         width: 25%;
+         
+         display: inline-block;
+         padding-left: 50px;
+     }
+     .container{
+         display: flex;
+         padding: 2% 0;
+         justify-content: space-around;
+         flex-flow: row wrap;
+         align-items: stretch;
+     }
+     .item{
+       flex-grow: "1";
+       width: 200px;
+       padding-right: 70px;
+       padding-left: 200px;
+       
+     }
+     .item1{
+        flex-grow: "1";
+        text-align: right;
+        padding-left: 70px;
+        
+    }
+    
+    .container1{
+        display: flex;
+         padding: 2% 0;
+         justify-content: space-around;
+         flex-flow: row wrap;
+         align-items: stretch;
+
+    }
+    .item11{
+       flex-grow: "1";
+       width: 450px;
+       padding-right: 0px;
+       padding-left: 0px;
+       display: flex;
+       flex-wrap:wrap;
+       
+     }
+     .item12{
+        flex-grow: "1";
+        
+        padding-left: 90px;
+        
+    }
+    .item13{
+        flex-grow: "1";
+        
+        padding-left: 70px;
+        
+    }
+    .item14{
+        flex-grow: "1";
+        
+        padding-left: 70px;
+        
+    }
+    #quantity{
+      padding: 2px;
+      width:20px;
+    }
+    div p {
+        margin-top: 0px;
+        padding-left: 20px;
+    }
+    #rightdiv{
+        width:30%;
+        vertical-align: top;
+        display:inline-block;
+    }
+    #rightdiv #order {
+        display:inline-block;
+    }
+    #rightdiv #source{
+        display:inline-block;
+    }
+    #source{
+        color: #b6b6b6;
+        text-align: right;
+        padding-left: 40%;
+    }
+    #totaldiv{
+        width: 90%;
+        height: 400px;
+        
+        margin:5% 0 5% 5%;
+        
+
+    }
+    #totaldiv #subtotal div{
+        text-align: right;
+        display: inline-block;
+    }
+    #subtotal .sub1 {
+        display: inline-block;
+    }
+
+    #subtotal .sub2 {
+        display: inline-block;
+        padding-left: 60%;
+    }
+    #subtotal{
+        padding-top: 6%;
+    }
+    #imglogo{
+        width:22%;
+        height: 16px;
+        padding-top: 2%;
+    }
+    #button{
+        width: 70%;
+        height: 30px;
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        padding: 3% 3% 10% 3%;
+        
+        margin-left:15%;
+        
+    }
+    #buttondiv{
+        
+        margin-top: 2%;
+
+    }
+    #paypal{
+        width:70%;
+        height:40px;
+        border-radius: 3px;
+        
+        background-color: white;
+        padding: 3% 3% 10% 3%;
+        margin-left: 15%;
+        margin-top: 3%;
+    }
+    .class{
+        margin-top: -2%;
+    }
+    #paypallogo{
+        width:35%;
+        height: 10%;
+        
+    }
+    #paypal div{
+     margin-top: -10px;
+    }
+    #saved{
+        width:92%;
+        padding: 40px;
+        border:1px solid #eeeeee; 
+        margin-top: 8%;
+
+    }
+    #saved1{
+         
+        margin-top: 8%;
+
+    }
+    #quantityslct{
+        padding: 10px;
+        border-radius: 6px;
+    }
+    #mostp{
+        margin-top: 8%; 
+    }
+    </style>
+</head>
+<body>
+    <div id = "horizontallin"></div>
+    <div id = "leftdiv">
+        <div id = "shopbg">Shopping Bag</div>
+        <a  href =options.html><div id ="delivery"><u>Delivery options</u></div></a>
+        <div id = "horizontallin1"></div>
+        <div class ="container">
+            <div class ="item">Item</div>
+            <div class  ="item1">Item Price</div>
+            <div class  ="item1">Quantity</div>
+            <div class  ="item1">Total</div>
+            
+            
+        </div>
+        <div id = "horizontallin1"></div>
+        <div class = "container1">
+            <div class ="item11" >
+            <img class ="img" src ="">
+               <div id ="paragraph">
+                   <p></p>
+                   <p></p>
+                   <p></p>
+                   <p></p>
+                </div>
+            </div>
+            <div class  ="item12" ></div>
+            <div class  ="item13">
+                <select id ="quantityslct" name ="quantity">
+                  <option value = "1">1</option>
+                  <option value = "2">2</option>
+                  <option value = "3">3</option>
+                  <option value = "4">4</option>
+                  <option value = "5">5</option>
+                  <option value = "6">6</option>
+                  <option value = "7">7</option>
+                  <option value = "8">8</option>
+                  <option value = "9">9</option>
+                  <option value = "10">10</option>
+                  
+
+               </select>
+            </div>
+            <div class  ="item14"></div>
+        </div>
+        <div id = "horizontallin1"></div>
+        <div id = "saved1">Saved for Later</div>
+        <div id ="saved">Your Saved for Later is currently empty.</div>
+        <div id = "mostp">Most Popular</div>
+        <div id = "horizontallin1"></div>
+        <div  ></div>
+    </div>
+    <div id = "rightdiv">
+        <div id ="order">Order Summary</div>
+        <div id = "source"><u>800.282.2200</u></div>
+        <div id = "totaldiv">
+            <div id = "subtotal">
+                <div class ="sub1 sbttl"></div>
+                <div class = "sub2 sbttlamt"></div>
+            </div>
+        
+            <div id = "subtotal">
+                <div class ="ship">Shipping</div>
+                <div class = "sub2 shipamt"></div>
+            </div>
+            <div id = "subtotal">
+                <div class ="cash">Estimated Tax</div>
+                <div class = "sub2 cashamt"></div>
+            </div>
+            <div id = "subtotal">
+                <div class ="ttl">Total</div>
+                <div class = "sub2 ttlamt"></div>
+            </div>
+            <div id ="subtotal">Or 4 interest-free installments of $77.72 by</div>
+            <div class ="class" >
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Afterpay_logo.svg/1200px-Afterpay_logo.svg.png" id ="imglogo">
+            </div>
+            <div id ="buttondiv">
+                <a href ="checkout.html"><button type ="text" id ="button" onclick="joy()">Proceed to Checkout</button><a>
+            </div>
+            <div id= "paypal1">
+                <a href ="paypal.html"><button type ="text" id ="paypal" onclick="joy()"><div><img src ="https://logos-world.net/wp-content/uploads/2020/04/PayPal-Logo-2014-present.jpg" id ="paypallogo"></div></button></a>
+            </div>
+            </br>
+            
+            <div id = "horizontallin1"></div>
+            <div id ="subtotal">
+                <div>promo code</div>
+                <div class = sub2>+</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let parent = document.getElementsByClassName("container")
+       let div = document.getElementsByClassName("item11");
+        
+        let leftdiv =document.getElementById("leftdiv")
+
+       
+       let cart = JSON.parse(localStorage.getItem("cart"));
+
+       function showCart(){
+
+           cart.forEach(function(product){
+
+               let div = document.getElementsByClassName("item11");
+                
+               let img = document.createElement("img");
+
+               let para = document.getElementById("paragraph");
+
+               let p1 = document.createElement("p");
+
+               let iprice = document.getElementsByClassName("item12");
+
+               let p2 = document.createElement("p");
+
+               let total = document.getElementsByClassName("item14");
+
+               let p3 = document.createElement("p"); 
+
+               let sbttl = document.getElementsByClassName("sbttl");
+
+               sbttl.textContent ="Subtotal";
+
+               let sbttlamt = document.getElementsByClassName("sbttlamt");
+
+               
+
+               let shipamt = document.getElementsByClassName("shipamt");
+
+               
+               
+               let cashamt = document.getElementsByClassName("cashamt");
+
+               
+               
+               let ttlamt = document.getElementsByClassName("ttlamt");
+
+
+
+
+
+
+           })
+           
+       }
+
+       showCart();
+    </script>
+</body>
+</html>
