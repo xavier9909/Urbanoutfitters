@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,500&display=swap" rel="stylesheet">
+    <title>Lifestyle</title>
+    <style>
+        *{
+            font-family: 'Rubik', sans-serif;
+            color: rgb(88, 86, 86);
+            /* border: 1px solid black;  */
+        }
+        #products {
+            width: 95%;
+            margin: 5% 5% 10% 5%;
+            height: 600px;
+            display: grid;
+            grid-template-columns: 22% 22% 22% 22%;
+            grid-gap: 1%;
+            justify-content: center;
+            /* padding: 0px; */
+            /* border: 1px solid red; */
+
+        }
+        .box {
+          transition: 0.1s;
+          /* padding: 1px; */
+          /* margin: 20px -25px; */
+          /* height: 400px; */
+        }
+        .box:hover {
+          transform:scale(1.1);
+        }
+        img {
+            width: 90%;
+            margin-top: 15px;
+        }
+        .btn1 {
+          border: none;
+          border-radius: 5px;
+          transition: 0.1s;
+        }
+        .btn1:hover {
+          transform:scale(1.06);
+        } 
+        .btn {
+          background-color: black;
+          color: white;
+          width: 90%;
+          border: none;
+          /* transition: 0.1s; */
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <h1>Lifestyle</h1>
+    <a href="cart.html"><button class="btn1" >Go to Bag</button></a>
+
+    <button onclick="sortLH()" class="btn1" >Sort: Price low to high</button>
+    <button onclick="sortHL()" class="btn1" >Sort: Price high to low</button>
+
+    <div id="products"></div>
+
+    <script>
+        let data = [
+    {
+      name: "Card Game Expansion Pack",
+      price: "2000.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/59592105_069_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Silicon Camera Cover",
+      price: "1347.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/60046570_095_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Catsuit Holloween Costume",
+      price: "9979.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/62728274_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Sticky Notepad",
+      price: "2090.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65404618_060_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Sticky Notepad Set",
+      price: "1347.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65404683_095_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Fishye Camera",
+      price: "9949.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/62990742_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Star crossed LP",
+      price: "2050.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65692600_000_b?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Galaxy Star Projecter",
+      price: "1347.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/61661930_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Bluetooth Record Player",
+      price: "7499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/62242086_007_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Hood Holloween Costume",
+      price: "1499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63079347_030_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "The Power of Zodiac",
+      price: "1599.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65101115_806_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Bear dog costume",
+      price: "1999.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63073985_040_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Cork board",
+      price: "1699.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65421406_020_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Mini Beauty Refrigrator",
+      price: "8499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64748833_066_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Eco-friendly bluetooth speaker",
+      price: "1799.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64239445_020_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Lomography Camera",
+      price: "6499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/62990734_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Smoko Squishy",
+      price: "3499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64163306_072_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Mac Miller - faces",
+      price: "1999.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/66190893_072_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Pillow Bluetooth Speaker",
+      price: "2499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63126924_072_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Tube Holloween Costume",
+      price: "2399.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/53191342_080_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "DIY Candle Kit",
+      price: "2599.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/55372676_010_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Nailed It!",
+      price: "1699.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65448615_000_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Smoko Frog Heated Seater",
+      price: "4499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63641955_030_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Mini Tabletop Pool Game",
+      price: "3499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63942866_072_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Potato Light",
+      price: "2999.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65816860_010_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Tea Holloween Costume",
+      price: "3699.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64271521_024_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "A Beginner's mind",
+      price: "5499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65657884_070_b?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Sun iPhone Case",
+      price: "1499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64526965_805_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+  ];
+       
+        // 1. Run a foreEach loop on data and console log individual product names 
+        // 2. append this data  on DOM
+        // 3. createElement
+
+        let parent = document.getElementById("products");
+
+        function showProducts(d) {
+
+            parent.innerHTML = null;
+
+            d.forEach(function (product) {
+
+                let div = document.createElement("div");
+
+                // div.classList.add("box");
+
+                let img = document.createElement("img");
+
+                img.src = product.img;
+
+                img.classList.add("box");
+
+                let product_price = document.createElement("p");
+
+                product_price.textContent = product.price;
+
+                let product_name = document.createElement("p");
+
+                product_name.textContent = product.name;
+
+                let addtocart_btn =  document.createElement("button");
+
+                addtocart_btn.classList.add("btn");
+
+                addtocart_btn.innerText = "Add to Bag";
+
+                addtocart_btn.onclick = function () {
+                    addtoCart(product);              
+                  };
+
+                  div.append(img,product_name,product_price,addtocart_btn); // HTML element
+
+                  parent.append(div);
+            });
+        }
+
+        showProducts(data);
+
+        //check if cart exists in localStorage
+        
+        if (localStorage.getItem("urban") === null ) {
+            localStorage.setItem("urban",JSON.stringify([]));
+        }
+
+        function addtoCart(p) {
+             
+            let products_cart = JSON.parse(localStorage.getItem("urban"));
+
+            products_cart.push(p);
+
+            localStorage.setItem("urban",JSON.stringify(products_cart));
+
+            console.log("products_cart:",products_cart);
+
+        }
+
+        function sortLH() {
+
+            let arr = data.sort(function(a,b) {
+                return a.price - b.price;
+            });
+            //console.log(arr);
+            showProducts(arr);
+        }
+
+        function sortHL() {
+
+            let arr = data.sort(function(a,b) {
+                return b.price - a.price;
+            });
+            //console.log(arr);
+            showProducts(arr);
+        }
+
+    </script>
+</body>
+</html>

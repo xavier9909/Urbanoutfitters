@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,500&display=swap" rel="stylesheet">
+    <title>Womenz</title>
+    <style>
+        *{
+            font-family: 'Rubik', sans-serif;
+            color: rgb(88, 86, 86);
+            /* border: 1px solid black;  */
+        }
+        #products {
+            width: 95%;
+            margin: 5% 5% 10% 5%;
+            height: 600px;
+            display: grid;
+            grid-template-columns: 22% 22% 22% 22%;
+            grid-gap: 1%;
+            justify-content: center;
+            /* padding: 0px; */
+            /* border: 1px solid red; */
+
+        }
+        .box {
+          transition: 0.1s;
+          /* padding: 1px; */
+          /* margin: 20px -25px; */
+          /* height: 400px; */
+        }
+        .box:hover {
+          transform:scale(1.1);
+        }
+        img {
+            width: 90%;
+            margin-top: 15px;
+        }
+        .btn1 {
+          border: none;
+          border-radius: 5px;
+          transition: 0.1s;
+        }
+        .btn1:hover {
+          transform:scale(1.06);
+        } 
+        .btn {
+          background-color: black;
+          color: white;
+          width: 90%;
+          border: none;
+          /* transition: 0.1s; */
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <h1>Women's clothing: Tops, Dresses, Denim + More</h1>
+    <a href="cart.html"><button class="btn1" >Go to Bag</button></a>
+
+    <button onclick="sortLH()" class="btn1" >Sort: Price low to high</button>
+    <button onclick="sortHL()" class="btn1" >Sort: Price high to low</button>
+
+    <div id="products"></div>
+
+    <script>
+        let data = [
+    {
+      name: "Pullover Sweater",
+      price: "2000.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63848816_038_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Leena Cowboy Boot",
+      price: "1347.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/62186143_014_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Frankie Cardigan",
+      price: "9979.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63848535_015_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Checkered Beret",
+      price: "2090.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63688022_018_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Popover Sweatshirt",
+      price: "1347.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63999601_069_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Open-back Top",
+      price: "9949.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64149636_011_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Levi's Patch Jean",
+      price: "2050.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/65135048_091_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Crew Neck Sweatshirt",
+      price: "1347.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64123433_004_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Mesh Mini Skirt",
+      price: "7499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/62864889_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Knit Mini Skirt",
+      price: "2499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64240757_049_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Pieced Pant",
+      price: "3599.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64659386_000_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "BDG-Tennis Print",
+      price: "2199.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64403181_015_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Thermal Tee",
+      price: "2599.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64077357_080_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Cool Shrunken Sweatshirt",
+      price: "4499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64101942_011_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Pelmit Mini Skirt",
+      price: "3499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/62930433_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Real T-Shirt",
+      price: "7499.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64101967_020_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Patched Scarf",
+      price: "4699.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63561138_040_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Chelsea Boot",
+      price: "3899.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/62263199_002_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Sweater Wrap Top",
+      price: "5699.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64735525_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Flanned Shirt",
+      price: "2399.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63348908_060_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Neck Sweater",
+      price: "2599.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/59003848_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Baseball hat",
+      price: "3699.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/61902524_011_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Slip Dress",
+      price: "2899.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64280654_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Crew Neck Sweatshirt",
+      price: "3899.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/59226100_020_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Mock Neck Sweater",
+      price: "4599.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/63598734_029_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Zip up Hoodie",
+      price: "2899.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/61035804_030_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Plaid Blaizer",
+      price: "6799.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/64082910_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+    {
+      name: "Printed Sherpa Jacket",
+      price: "6899.00",
+      img: "https://s7d5.scene7.com/is/image/UrbanOutfitters/61265542_001_d?$medium$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+    },
+  ];
+       
+        // 1. Run a foreEach loop on data and console log individual product names 
+        // 2. append this data  on DOM
+        // 3. createElement
+
+        let parent = document.getElementById("products");
+
+        function showProducts(d) {
+
+            parent.innerHTML = null;
+
+            d.forEach(function (product) {
+
+                let div = document.createElement("div");
+
+                // div.classList.add("box");
+
+                let img = document.createElement("img");
+
+                img.src = product.img;
+
+                img.classList.add("box");
+
+                let product_price = document.createElement("p");
+
+                product_price.textContent = product.price;
+
+                let product_name = document.createElement("p");
+
+                product_name.textContent = product.name;
+
+                let addtocart_btn =  document.createElement("button");
+
+                addtocart_btn.classList.add("btn");
+
+                addtocart_btn.innerText = "Add to Bag";
+
+                addtocart_btn.onclick = function () {
+                    addtoCart(product);              
+                  };
+
+                  div.append(img,product_name,product_price,addtocart_btn); // HTML element
+
+                  parent.append(div);
+            });
+        }
+
+        showProducts(data);
+
+        //check if cart exists in localStorage
+        
+        if (localStorage.getItem("urban") === null ) {
+            localStorage.setItem("urban",JSON.stringify([]));
+        }
+
+        function addtoCart(p) {
+             
+            let products_cart = JSON.parse(localStorage.getItem("urban"));
+
+            products_cart.push(p);
+
+            localStorage.setItem("urban",JSON.stringify(products_cart));
+
+            console.log("products_cart:",products_cart);
+
+        }
+
+        function sortLH() {
+
+            let arr = data.sort(function(a,b) {
+                return a.price - b.price;
+            });
+            //console.log(arr);
+            showProducts(arr);
+        }
+
+        function sortHL() {
+
+            let arr = data.sort(function(a,b) {
+                return b.price - a.price;
+            });
+            //console.log(arr);
+            showProducts(arr);
+        }
+
+    </script>
+</body>
+</html>
